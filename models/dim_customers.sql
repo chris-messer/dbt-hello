@@ -1,27 +1,13 @@
-with customers as (
+WITH
+    customers as (
+        SELECT * FROM {{ ref ('stg_customers')}}
+    ),
 
-    select
-        id as customer_id,
-        first_name,
-        last_name
+    orders as (
+        SELECT * FROM {{ ref ('stg_orders')}}
+    ),
 
-    from jaffle_shop.customers
-
-),
-
-orders as (
-
-    select
-        id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
-
-    from jaffle_shop.orders
-
-),
-
-customer_orders as (
+    customer_orders as (
 
     select
         customer_id,

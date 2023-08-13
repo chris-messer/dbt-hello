@@ -1,0 +1,19 @@
+dbt-quickstart:
+  target: dev
+  outputs:
+    dev:
+      type: redshift
+      host: dbtredshiftcluster-9kuhok4qjh3l.cx3cvl9psxdt.us-east-1.redshift.amazonaws.com
+      user: dbtadmin
+      password: Dbtadmin108!
+      port: 5439
+      dbname: dbtworkshop
+      schema: dbt_cmesser
+      threads: 4
+#      connect_timeout: None # optional, number of seconds before connection times out
+      # search_path: public # optional, not recommended
+      sslmode: prefer # optional, set the sslmode to connect to the database. Default prefer, which will use 'verify-ca' to connect.
+      role: # optional
+      ra3_node: true # enables cross-database sources
+      autocommit: true # enables autocommit after each statement
+      region: # optional
